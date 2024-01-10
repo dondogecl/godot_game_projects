@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://boehvuper1abt"]
+[gd_scene load_steps=4 format=3 uid="uid://boehvuper1abt"]
 
 [ext_resource type="PackedScene" uid="uid://bx4b6n4ei4ynp" path="res://player.tscn" id="1_swuh2"]
 [ext_resource type="PackedScene" uid="uid://dqxerhqgvujn1" path="res://pine_tree.tscn" id="2_e7hf3"]
+[ext_resource type="PackedScene" uid="uid://d1wsm677441pl" path="res://mob.tscn" id="3_1klgh"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -38,16 +39,16 @@ position = Vector2(479, 534)
 position = Vector2(326, 530)
 
 [node name="PineTree9" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(326, 719)
+position = Vector2(242, 722)
 
 [node name="PineTree10" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(447, 722)
+position = Vector2(325, 718)
 
 [node name="PineTree11" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(560, 722)
+position = Vector2(412, 718)
 
 [node name="PineTree12" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(684, 722)
+position = Vector2(495, 721)
 
 [node name="PineTree13" parent="." instance=ExtResource("2_e7hf3")]
 position = Vector2(785, 426)
@@ -56,16 +57,19 @@ position = Vector2(785, 426)
 position = Vector2(847, 514)
 
 [node name="PineTree15" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(1003, 748)
+position = Vector2(1046, 879)
 
 [node name="PineTree16" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(1126, 745)
+position = Vector2(1262, 879)
 
 [node name="PineTree17" parent="." instance=ExtResource("2_e7hf3")]
-position = Vector2(1243, 748)
+position = Vector2(1480, 871)
 
 [node name="PineTree18" parent="." instance=ExtResource("2_e7hf3")]
 position = Vector2(931, 436)
 
 [node name="PineTree19" parent="." instance=ExtResource("2_e7hf3")]
 position = Vector2(976, 511)
+
+[node name="Mob" parent="." instance=ExtResource("3_1klgh")]
+position = Vector2(1619, 274)
