@@ -79,3 +79,9 @@ position = Vector2(1619, 274)
 
 [node name="Mob2" parent="." instance=ExtResource("3_1klgh")]
 position = Vector2(87, 1015)
+
+[node name="Mob3" parent="." instance=ExtResource("3_1klgh")]
+position = Vector2(68, 127)
+
+[node name="Mob4" parent="." instance=ExtResource("3_1klgh")]
+position = Vector2(1866, 977)

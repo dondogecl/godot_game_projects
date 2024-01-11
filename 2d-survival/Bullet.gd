@@ -17,4 +17,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	queue_free()
+	# check if the target has a function
+	if body.has_method("take_damage"):
+		body.take_damage()

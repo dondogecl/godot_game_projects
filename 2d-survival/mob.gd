@@ -4,6 +4,11 @@ extends CharacterBody2D
 
 # adjustable speed parameter
 @export var speed = 15000.0
+var health = 3
+
+func _ready():
+	# walk animation
+	%Slime.play_walk()
 
 func _physics_process(delta):
 	# calculates the direction to the player
@@ -15,3 +20,21 @@ func _physics_process(delta):
 	# velocity of the mob
 	velocity = direction * speed * delta
 	move_and_slide()
+
+func take_damage():
+	# triggered when mob receives an attack (signal)
+	health -= 1
+	# damage animation
+	%Slime.play_hurt()
+	if health == 0:
+		queue_free()
+		# prepare explosion animation
+		const SMOKE_SCENE = preload(
+			"res://smoke_explosion/smoke_explosion.tscn"
+			)
+		var smoke = SMOKE_SCENE.instantiate()
+		# instantiate smoke as children of the parent node 
+		# (sibling of mob)
+		get_parent().add_child(smoke)
+		# position the smoke
+		smoke.global_position = global_position
