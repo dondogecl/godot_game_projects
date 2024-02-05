@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://djcx88eg0i2h"]
+
+[ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_1jpvn"]
+[ext_resource type="PackedScene" uid="uid://b4ovt7eqjwy0g" path="res://player.tscn" id="2_qjh2u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cyv6x"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_imjfe"]
+sky_material = SubResource("ProceduralSkyMaterial_cyv6x")
+
+[sub_resource type="Environment" id="Environment_c6pa0"]
+background_mode = 2
+sky = SubResource("Sky_imjfe")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyy0f"]
+albedo_color = Color(0.4, 0.270588, 0.176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5h6se"]
+albedo_color = Color(0.172549, 0.513726, 0.658824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nh3r"]
+albedo_color = Color(0.207843, 0.709804, 0.372549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwtpd"]
+albedo_color = Color(0.94902, 0.486275, 0.662745, 1)
+
+[node name="Level" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0947675, 4.76837e-07, 0.00687218)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c6pa0")
+
+[node name="Ground" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+use_collision = true
+size = Vector3(45, 8, 5)
+material = SubResource("StandardMaterial3D_lyy0f")
+
+[node name="LaunchPad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.25, 0)
+use_collision = true
+size = Vector3(3, 0.5, 3)
+material = SubResource("StandardMaterial3D_5h6se")
+
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.25, 0)
+use_collision = true
+size = Vector3(3, 0.5, 3)
+material = SubResource("StandardMaterial3D_7nh3r")
+script = ExtResource("1_1jpvn")
+file_path = "res://Level/level.tscn"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 5, 11)
+
+[node name="Player" parent="." instance=ExtResource("2_qjh2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5, 0.001)
+
+[node name="Obstacle" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40871, 7.54517, 0)
+use_collision = true
+size = Vector3(28.8131, 0.825195, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
+
+[node name="Obstacle2" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 6.062, 1.97548, 0)
+use_collision = true
+size = Vector3(3.90967, 4.17371, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
+
+[node name="Obstacle5" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 9.26064, 1.08298, 0)
+use_collision = true
+size = Vector3(2.46851, 2.38873, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
+
+[node name="Obstacle4" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, 2.17637, 1.07776, 0)
+use_collision = true
+size = Vector3(3.90967, 2.3783, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
+
+[node name="Obstacle6" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1.00001, 0, 0, 0, 1.00001, 0, 0, 0, 1.00001, -8.54104, 0.144248, -0.169729)
+use_collision = true
+size = Vector3(3.90967, 0.625183, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
+
+[node name="Obstacle3" type="CSGBox3D" parent="." groups=["Outside"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.075, 3.58426, 0)
+use_collision = true
+size = Vector3(3, 7.16852, 3)
+material = SubResource("StandardMaterial3D_bwtpd")
